@@ -23,7 +23,7 @@ sudo systemctl restart docker
 
 echo "📥 Cloning repository & setting up..."
 cd /opt
-sudo git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git medical-ocr
+sudo git clone https://github.com/Sebukpor/medical-document-ocr
 cd /opt/medical-ocr
 
 sudo cp .env.example .env
