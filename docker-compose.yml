@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  medical-ocr:
+    build: .
+    runtime: nvidia
+    container_name: medical-ocr-app
+    environment:
+      - HF_TOKEN=${HF_TOKEN}
+      - TZ=UTC
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./hf-cache:/root/.cache/huggingface
+      - ./logs:/app/logs
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
